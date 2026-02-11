@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Digital+7&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Digital 7', monospace;
+  text-align: center;
+  overflow: hidden; /* prevent scroll */
+  padding: 0;
+
+  /* Home page multicolor animated gradient */
+  background: linear-gradient(269deg, #1587a3, #0b073b, #c0ff00, #000000);
+  background-size: 400% 400%;
+  animation: homeGradient 15s ease infinite;
+}
+
+@keyframes homeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container */
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;  /* fixed max width to prevent horizontal scroll */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Title */
+.calculator-title {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(269deg, #1587a3, #0b073b, #c0ff00, #000000);
+  background-size: 400% 400%;
+  animation: titleGradient 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+@keyframes titleGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Calculator */
+.calculator {
+  width: 100%;  /* full width of container */
+  max-width: 100%; 
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Display */
+.display {
+  text-align: right;
+  min-height: 80px;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+#expression {
+  font-size: 16px;
+  opacity: 0.7;
+  word-wrap: break-word;
+}
+
+#result {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 5px;
+  word-wrap: break-word;
+}
+
+/* Buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+button {
+  height: 55px;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+
+  /* Animated gradient */
+  background: linear-gradient(269deg, #1587a3, #0b073b, #c0ff00, #000000);
+  background-size: 400% 400%;
+  animation: buttonGradient 6s ease infinite;
+  transition: all 0.25s ease;
+}
+
+@keyframes buttonGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+button:active {
+  transform: scale(0.92);
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+/* Responsive Adjustments */
+
+/* Small devices (mobiles) */
+@media(max-width:480px){
+  .calculator-title { font-size: 28px; }
+  #result { font-size: 28px; }
+  #expression { font-size: 14px; }
+  button { font-size: 14px; height: 50px; }
+}
+
+/* Medium devices (tablets) */
+@media(min-width:481px) and (max-width:767px){
+  .calculator-title { font-size: 36px; }
+  #result { font-size: 32px; }
+  #expression { font-size: 16px; }
+  button { font-size: 16px; height: 55px; }
+}
+
+/* Laptops and desktops */
+@media(min-width:768px){
+  .calculator-container { max-width: 400px; } /* fixed width to avoid scroll */
+  .calculator-title { font-size: 44px; }
+  #result { font-size: 36px; }
+  #expression { font-size: 18px; }
+  button { font-size: 18px; height: 60px; }
+}
+
+/* Large screens */
+@media(min-width:1024px){
+  .calculator-title { font-size: 40px; }
+  #result { font-size: 40px; }
+  #expression { font-size: 20px; }
+  button { font-size: 20px; height: 65px; }
+}
